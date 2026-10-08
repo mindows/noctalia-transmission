@@ -1,0 +1,113 @@
+# Transmission remote client for Noctalia.
+#
+# A [[service]] polls the daemon's RPC and publishes session stats to shared
+# state; the bar widget and control-center tile watch it. The panel queries the
+# torrent list itself, and only while it is open. Every entry talks to the
+# daemon through lib/rpc.luau.
+
+id = "mindows/transmission"
+name = "Transmission"
+version = "0.1.0"
+plugin_api = 22
+author = "mindows"
+license = "MIT"
+icon = "magnet"
+description = "Monitor and control a (remote) Transmission BitTorrent daemon over its RPC interface."
+tags = ["torrent", "bittorrent", "transmission", "network"]
+dependencies = []
+
+# Plugin-level settings: shared by the service, widget, panel, and shortcut.
+
+[[setting]]
+key = "host"
+type = "string"
+label_key = "settings.host.label"
+description_key = "settings.host.description"
+default = "192.168.55.240"
+
+[[setting]]
+key = "port"
+type = "int"
+label_key = "settings.port.label"
+default = 9091
+min = 1
+max = 65535
+
+[[setting]]
+key = "username"
+type = "string"
+label_key = "settings.username.label"
+description_key = "settings.username.description"
+default = ""
+
+[[setting]]
+key = "password_file"
+type = "file"
+label_key = "settings.password_file.label"
+description_key = "settings.password_file.description"
+default = "~/.config/noctalia-transmission/password"
+
+[[setting]]
+key = "refresh_seconds"
+type = "int"
+label_key = "settings.refresh_seconds.label"
+default = 300
+min = 5
+max = 3600
+
+[[setting]]
+key = "rpc_path"
+type = "string"
+label_key = "settings.rpc_path.label"
+default = "/transmission/rpc"
+advanced = true
+
+[[setting]]
+key = "use_https"
+type = "bool"
+label_key = "settings.use_https.label"
+default = false
+advanced = true
+
+[[service]]
+id = "service"
+entry = "service.luau"
+
+[[widget]]
+id = "speed"
+entry = "widget.luau"
+
+  [[widget.setting]]
+  key = "glyph"
+  type = "glyph"
+  label_key = "settings.glyph.label"
+  default = "magnet"
+
+  [[widget.setting]]
+  key = "show_rate"
+  type = "bool"
+  label_key = "settings.show_rate.label"
+  description_key = "settings.show_rate.description"
+  default = true
+
+  [[widget.setting]]
+  key = "hide_when_idle"
+  type = "bool"
+  label_key = "settings.hide_when_idle.label"
+  description_key = "settings.hide_when_idle.description"
+  default = false
+
+# Open with: noctalia msg panel-toggle mindows/transmission:panel
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 520
+height = 560
+placement = "attached"
+position = "auto"
+open_near_click = true
+
+# Control-center tile: toggles Transmission's alternative ("turtle") speed limits.
+[[shortcut]]
+id = "altspeed"
+entry = "shortcut.luau"

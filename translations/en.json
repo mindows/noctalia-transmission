@@ -1,0 +1,86 @@
+{
+  "title": "Transmission",
+  "settings": {
+    "host": {
+      "label": "Host",
+      "description": "Hostname or IP address of the Transmission daemon"
+    },
+    "port": {
+      "label": "Port"
+    },
+    "username": {
+      "label": "Username",
+      "description": "RPC username; leave empty if authentication is disabled"
+    },
+    "password_file": {
+      "label": "Password file",
+      "description": "File containing the RPC password (surrounding whitespace is ignored)"
+    },
+    "refresh_seconds": {
+      "label": "Background refresh interval (seconds)"
+    },
+    "rpc_path": {
+      "label": "RPC path"
+    },
+    "use_https": {
+      "label": "Use HTTPS"
+    },
+    "glyph": {
+      "label": "Glyph"
+    },
+    "show_rate": {
+      "label": "Show transfer rate",
+      "description": "Show the download/upload rate next to the icon; it is always in the tooltip"
+    },
+    "hide_when_idle": {
+      "label": "Hide when idle",
+      "description": "Hide the widget while nothing is downloading or uploading"
+    }
+  },
+  "widget": {
+    "connecting": "Connecting…",
+    "disconnected": "Disconnected",
+    "error": "Error",
+    "download": "Download",
+    "upload": "Upload",
+    "active": "Active",
+    "paused": "Paused",
+    "total": "Torrents",
+    "alt_speed": "Alt speed",
+    "on": "On"
+  },
+  "shortcut": {
+    "label": "Alt speed"
+  },
+  "panel": {
+    "loading": "Loading torrents…",
+    "empty": "No torrents",
+    "retry": "Retry",
+    "settings": "Settings",
+    "pause": "Pause",
+    "resume": "Resume",
+    "pause_all": "Pause all",
+    "resume_all": "Resume all",
+    "ratio": "ratio"
+  },
+  "status": {
+    "stopped": "Paused",
+    "check_wait": "Queued to verify",
+    "checking": "Verifying",
+    "download_wait": "Queued",
+    "downloading": "Downloading",
+    "seed_wait": "Queued to seed",
+    "seeding": "Seeding",
+    "unknown": "Unknown"
+  },
+  "error": {
+    "no_password_file": "No password file configured",
+    "password_unreadable": "Cannot read password file {path}",
+    "no_session_id": "Daemon did not provide a session id",
+    "unauthorized": "Authentication failed: check the username and password file",
+    "unreachable": "Cannot reach {url}",
+    "http": "HTTP error {status}",
+    "bad_response": "Malformed response from daemon",
+    "not_accepted": "Request was not accepted"
+  }
+}
