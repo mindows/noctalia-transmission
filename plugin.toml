@@ -23,7 +23,7 @@ key = "host"
 type = "string"
 label_key = "settings.host.label"
 description_key = "settings.host.description"
-default = "192.168.55.240"
+default = "localhost"
 
 [[setting]]
 key = "port"

@@ -23,7 +23,7 @@ Talks to the daemon's HTTP RPC directly; `transmission-remote` is not required.
 
    ```toml
    [plugin_settings."mindows/transmission"]
-   host = "192.168.55.240"
+   host = "192.168.1.10"
    port = 9091
    username = "transmission"
    ```
